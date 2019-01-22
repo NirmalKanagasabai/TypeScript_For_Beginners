@@ -15,4 +15,16 @@ What is TypeScript? Why was it developed?
 - Structure of Objects: How can the developers prevent others from adding new properties to an existing object? The loosely structured objects in JS is a big problem as there is no system in place to handle this issue.
 - Application Complexity: Currently, the code bases has 1000s of 1000s of code. The applications are quite complex. 
 
+**Why would developers resort to JavaScript if it has so many problems?**
+- Because, JS is the only programming language that is capable of creating dynamic web pages. i.e., the only browser-supported language that can edit the DOM tree and display the information dynamically. 
+
+HTML -> [Browser] -> Static DOM Tree
+JS + HTML -> [Browser] -> DOM Tree <which can be altered dynamically>
+  
+In order to get around this problem, we are going to make use of 'COMPILATION'. This approach has been around on all high-level programming languages. Irrespective of whichever platform you want to run the application on, you can use the high-level language (say, Java) to create the application. Once compiled, it converts the high-level code to Java Byte code which can be further converted to machine-level code. 
+
+** Solution **
+TypeScript -> [Transpilation] -> JS -> [Browser] -> Dynamic DOM Tree
+
+The TypeScript Compiler converts the TypeScript into JavScript. This process is called, 'TRANSPILATION'. 
 
