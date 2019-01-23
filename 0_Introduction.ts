@@ -192,3 +192,14 @@ function calculateEquivalent (number1, number2, number3?) {
 console.log(calculateEquivalent(3, 5, 7));
 // output: 15
 
+// How to specify an argument as optional and type it?
+
+function dummyFunction (item?: number) {
+    console.log("Specifying an argument as optional and type declaring it.");
+}
+
+// How to specify an argument as optional and assign a default value and still type it?
+
+function yetAnotherDummyFunction (item: number = 0) {
+    console.log("It is to be noted that the ? is removed. Also, the typing is first done and then the default value is specified.");
+}
