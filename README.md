@@ -24,11 +24,24 @@ JS + HTML -> [Browser] -> DOM Tree <which can be altered dynamically>
   
 In order to get around this problem, we are going to make use of 'COMPILATION'. This approach has been around on all high-level programming languages. Irrespective of whichever platform you want to run the application on, you can use the high-level language (say, Java) to create the application. Once compiled, it converts the high-level code to Java Byte code which can be further converted to machine-level code. 
 
-** Solution **
+**TRANSPILATION**
 
 TypeScript -> [Transpilation] -> JS -> [Browser] -> Dynamic DOM Tree
 
 The TypeScript Compiler converts the TypeScript into JavScript. This process is called, 'TRANSPILATION'. The first phase, TypeScript -> JavaScript happens during 'Development Time'. From then on, it happens during 'Runtime'. Running TypeScript compilation on browsers is possible. Unfortunately, it is very inefficient!
+
+**TypeScript = JavaScript + Types (and some other stuff)**
+
+In short, TypeScript is a superset of JavaScript. A valid JS code is a valid TypeScript code. The additional feature that is put on top is optional. TypeScript includes the new development in the JS programming language. 
+
+JS is constantly evolving. For example, arrow functions are introduced. Unfortunately, the developers cannot confidently use those as they may not be sure if it is supported across all browsers. This has always been a problem. TypeScript attempts to address this problem. TypeScript code involves the new coding techniques. Upon transpiling the code, the conventional JS code is generated which works on all browsers. 
+
+TypeScript:
+- Makes buulding these complex apps more manageable
+- Frameworks like Angular 2 + is using it. More frameworks in the future. 
+ 
+
+
 
 
 
