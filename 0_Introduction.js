@@ -89,3 +89,52 @@ console.log("Sum of Two numbers: " + additionOfTwoNumbers(3, 5));
 // output: Sum of Two Numbers: 8
 // console.log("Sum of Two Elements (String + Number): " + additionOfTwoNumbers("Hello", 23));
 // [ts] Argument of type '"Hello"' is not assignable to parameter of type 'number'. [2345]
+// ----- VARIABLE ARGUMENTS ----- // 
+// i.e., The number of arguments to functions in JavaScript does not have to match the function signature. 
+// One can pass more or lesser arguments than what's declared in the function and it still works. 
+// If there are more arguments passed, they are ignored (basically, present in Arguments argument)
+// If there are less arguments passed, the missing ones are treated as 'undefined'.
+// additionOfTwoNumbers(3);
+// [ts] Expected 2 arguments, but got 1. [2554]
+// 0_Introduction.ts(119, 49): An argument for 'number2' was not provided.
+// This doesn't work in TypeScript. The default behaviour is, 'the number of arguments have to match'.
+// TypeScript enforces that the argument counts in function calls exactly match the function signature. 
+// What if the number of arguments that you wanna send needs to be flexible?? How to handle this situation??
+// TypeScript does have a feature that lets you add variable arguments. 
+function calculateSum(number1, number2, number3) {
+    return number1 + number2 + number3;
+}
+console.log(calculateSum(3, 5));
+// output: NaN (This is because, number3 is marked as undefined...)
+console.log(calculateSum(3, 5, 7));
+// output: 15
+// ----- OPTIONAL ARGUMENT -----
+// It is to be noted that number3 is followed by a '?'. This means to say that it is an optional argument. 
+// The function call will still be made with just two arguments without any error being thrown. Unfortunately, our calculation involes the third argument. If not, it works just fine. 
+// P.S.: It is mandatory to have the optional arguments at the end. It cannot work in the beginning or the middle.
+// ----- DEFAULT VALUE OF OPTIONAL ARGUMENT -----
+function calculate(number1, number2, number3) {
+    if (number3 === void 0) { number3 = 0; }
+    return number1 + number2 + number3;
+}
+console.log(calculate(3, 5));
+// output: 8
+console.log(calculate(3, 5, 7));
+// output: 15
+// The declaration number3 = 0 means to say that this argument is just optional. It isn't needed. If it isn't specified, take the value '0'. If not, try to use the value provided. 
+// An quivalent function is this:
+function calculateEquivalent(number1, number2, number3) {
+    if (number3 === undefined) {
+        number3 = 0;
+    }
+    return number1 + number2 + number3;
+}
+console.log(calculateEquivalent(3, 5));
+// If '?' is missing
+// -----------------
+//   0_Introduction.ts:175:49
+//   175 function calculateEquivalent (number1, number2, number3) {
+//                                                       ~~~~~~~
+//   An argument for 'number3' was not provided. 
+console.log(calculateEquivalent(3, 5, 7));
+// output: 
