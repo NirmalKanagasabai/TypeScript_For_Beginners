@@ -203,3 +203,27 @@ function dummyFunction (item?: number) {
 function yetAnotherDummyFunction (item: number = 0) {
     console.log("It is to be noted that the ? is removed. Also, the typing is first done and then the default value is specified.");
 }
+
+// Alright, now that the type declarations are done for the function arguments, also, the method signature needs to be obeyed.
+// How can one enforce what is the return type of a function? Is there a way to do it?
+
+// ----- TYPING THE RETURN TYPE OF THE FUNCTION ----- //
+ function concatenateString (word1: string, word2: string, word3: string = ".") : string {
+     return word1 + word2 + word3;
+ }
+
+ console.log("String Concatenation: " + concatenateString("Hello", " World"));
+ // output: String Concatenation: Hello World.
+
+ // ----- IMPLICIT TYPING ----- //
+// Though we haven't declared the type of the variables, TypeScript understands the value that is assigned to it and then assumes it to be the type.
+// This ensures that when a value of different type is assigned to the variable, TypeScript warns the developers of the same. 
+// This process is called, 'Implicit Typing'.
+
+ var m = 10;
+ var n = true;
+ var o = "Hello";
+
+// m = false;
+// [ts] Type 'false' is not assignable to type 'number'. [2322]
+

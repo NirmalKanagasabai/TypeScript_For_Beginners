@@ -148,3 +148,12 @@ function yetAnotherDummyFunction(item) {
     if (item === void 0) { item = 0; }
     console.log("It is to be noted that the ? is removed. Also, the typing is first done and then the default value is specified.");
 }
+// Alright, now that the type declarations are done for the function arguments, also, the method signature needs to be obeyed.
+// How can one enforce what is the return type of a function? Is there a way to do it?
+// ----- TYPING THE RETURN TYPE OF THE FUNCTION ----- //
+function concatenateString(word1, word2, word3) {
+    if (word3 === void 0) { word3 = "."; }
+    return word1 + word2 + word3;
+}
+console.log("String Concatenation: " + concatenateString("Hello", "World"));
+// output: String Concatenation: Hello World.
