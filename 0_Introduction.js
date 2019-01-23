@@ -155,5 +155,35 @@ function concatenateString(word1, word2, word3) {
     if (word3 === void 0) { word3 = "."; }
     return word1 + word2 + word3;
 }
-console.log("String Concatenation: " + concatenateString("Hello", "World"));
+console.log("String Concatenation: " + concatenateString("Hello", " World"));
 // output: String Concatenation: Hello World.
+// ----- IMPLICIT TYPING ----- //
+// Though we haven't declared the type of the variables, TypeScript understands the value that is assigned to it and then assumes it to be the type.
+// This ensures that when a value of different type is assigned to the variable, TypeScript warns the developers of the same. 
+// This process is called, 'Implicit Typing'.
+var m = 10;
+var n = true;
+var o = "Hello";
+// m = false;
+// [ts] Type 'false' is not assignable to type 'number'. [2322]
+// If you don't explicitly declare a variable type, but you assign a value with the declaration, TypeScript IMPLICITLY assumes the type from the value being assigned!
+var myStringArray = ["Hello", "World", "How", "Are", "You"];
+// myStringArray = [30, 40];
+// [ts] Type 'number' is not assignable to type 'string'. [2322]
+function normalTyping() {
+    return "Good Morning";
+}
+var greeting = normalTyping();
+console.log(greeting);
+function checkImplicitTyping() {
+    return "Good Morning";
+}
+var greeting = checkImplicitTyping();
+console.log(greeting);
+// Looking at the return value, TypeScript implicitly assumes what the return type of the function needs to be. 
+// What is the declaration of a variable is on two lines? Will TypeScript still do Implicit Typing?
+var greetingError; // Type: any
+greetingError = normalTyping(); // Type: string
+greetingError = 100; // Type: number
+// In the above example, TypeScript doesn't complain. 
+// This is mainly because, the declaration and the assignment needs to be done on the same line (the very first time the declaration is being done) so that the TypeScript does the Implicit Typing. 
