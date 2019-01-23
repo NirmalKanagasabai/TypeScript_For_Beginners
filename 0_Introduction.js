@@ -33,12 +33,16 @@ myNumberArray = [1, 2, 3];
 // Push, Pop, Shift and Unshift operations in the array...
 myNumberArray.push(30, 50, 70);
 console.log(myNumberArray);
+// output: [ 1, 2, 3, 30, 50, 70 ]
 myNumberArray.pop();
 console.log(myNumberArray);
+// output: [ 1, 2, 3, 30, 50 ]
 myNumberArray.shift();
 console.log(myNumberArray);
+// output: [ 2, 3, 30, 50 ]
 myNumberArray.unshift(30);
 console.log(myNumberArray);
+// output: [ 30, 2, 3, 30, 50 ]
 a = myNumberArray.pop();
 // This works because 'a' is typed as a number. And the element that is withdrawn is a number too.
 // b = myNumberArray.pop();
@@ -53,7 +57,35 @@ var myTuple;
 // The above is a declaration of a tuple where the first element is going to be a number and the second element being a boolean. 
 // This is how type declaration is done in Tuples. 
 myTuple = [1, true];
-// ?? myTuple.push(2, false);
-// >> myTuple.unshift(0, false);
+console.log(myTuple);
+// output: [ 1, true ]
+myTuple.push(2, false);
+console.log(myTuple);
+// output: [ 1, true, 2, false ]
+myTuple.unshift(0, false);
+console.log(myTuple);
+// output: [ 0, false, 1, true, 2, false ]
 // myTuple = [3];
 // [ts] Property '1' is missing in type '[number]' but required in type '[number, boolean]'. [2741]
+myTuple.push(33);
+console.log(myTuple);
+// output: [ 0, false, 1, true, 2, false, 33 ]
+// This is a problem because, Type checking isn't done here. A push method on a tuple ensures that type checking can be by-passed. 
+// ------- TYPING WITH FUNCTIONS ------- //
+// We can statistically declare the function that adds two numbers and prevent users from sending in a 'string' as an argument.
+// Declaring the types of the parameters of the function -- Similar to declaring the types of variables. 
+var number1;
+var number2;
+// function addition (number1, number2) {
+//     return number1 + number2;
+// }
+// var sum = addition(1, 3);
+// console.log("Sum: " + sum);
+// output: Sum: 4
+function additionOfTwoNumbers(number1, number2) {
+    return number1 + number2;
+}
+console.log("Sum of Two numbers: " + additionOfTwoNumbers(3, 5));
+// output: Sum of Two Numbers: 8
+// console.log("Sum of Two Elements (String + Number): " + additionOfTwoNumbers("Hello", 23));
+// [ts] Argument of type '"Hello"' is not assignable to parameter of type 'number'. [2345]
