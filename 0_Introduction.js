@@ -187,3 +187,29 @@ greetingError = normalTyping(); // Type: string
 greetingError = 100; // Type: number
 // In the above example, TypeScript doesn't complain. 
 // This is mainly because, the declaration and the assignment needs to be done on the same line (the very first time the declaration is being done) so that the TypeScript does the Implicit Typing. 
+// ----- DATA TYPE - ANY ----- //
+// In order to provide the flexibility of switching the types later on (just like JS does), TypeScript introduced the ANY data type
+// Basically, when a variable is declared as 'ANY', the developer informs the TypeScript to ignore any type checking for the corresponding variable
+var anyDataType;
+var anyDataType2;
+// [ts] Variable 'anyDataType2' implicitly has an 'any' type, but a better type may be inferred from usage. [7043]
+anyDataType = 10;
+anyDataType = "Hello";
+anyDataType = false;
+anyDataType2 = 20;
+anyDataType2 = "World";
+anyDataType2 = true;
+// ------ DATA TYPE - UNION ----- //
+// When you have a certain limited type that you want to assign to a variable, we can use 'Union' instead of 'Any'.
+// Using 'Any' can make the code too loosely-typed. To make it a bit more strong, we can make use of 'Union'.
+var unionDataType;
+// The above assignment means that the variable unionDataType can either take a number or a boolean value and not anything else.
+// Let us try assigning a string value to it.
+unionDataType = 100;
+unionDataType = false;
+// unionDataType = "Hello";
+// [ts] Type '"Hello"' is not assignable to type 'number | boolean'. [2322]
+var unionDataType2;
+unionDataType2 = 10000;
+unionDataType2 = true;
+unionDataType2 = "Newww";
